@@ -23,3 +23,7 @@ resize(image_path, output_width='', output_height='', output_path='')
 the other will be changed at the same rate.
 - The 'Output Path' value can be either the absolute file path or the directory path or empty. If left empty,
 output to the same directory with Input Image.
+
+
+### Usage as Tool
+The 4 parameters of the function are asked respectively. At the end, resize function is invoked according to the information given. If "q" value is given for any input, the tool closes.
