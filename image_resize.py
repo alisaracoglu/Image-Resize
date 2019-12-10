@@ -49,7 +49,12 @@ def resize(image_path, output_width="", output_height="", output_path=""):
         resized_image = cv2.resize(img, (output_width, output_height))
         cv2.imwrite(output_path, resized_image)
 
+        
+def _is_quit_tool(value):
+    if value is "q":
+        quit()
 
+        
 if __name__ == '__main__':
     while True:
         print("""
@@ -59,10 +64,19 @@ if __name__ == '__main__':
             the other will be changed at the same rate.
             -- The 'Output Path' value can be either the absolute file path or the directory path or empty. If left empty,
             output to the same directory with Input Image.
+            -- For close this tool -> write q and press Enter any time in the tool.
         """)
+        
         input_image_path = input("Input image path(required): ")
-        input_output_width = input("Output Width(optional): ")
-        input_output_height = input("Output Height(optional): ")
-        input_output_path = input("Output Path(optional): ")
+        _is_quit_tool(input_image_path)
 
-        resize(input_image_path, input_output_width, input_output_height, input_output_path)
+        output_image_width = input("Output Width(optional): ")
+        _is_quit_tool(output_image_width)
+
+        output_image_height = input("Output Height(optional): ")
+        _is_quit_tool(output_image_height)
+
+        output_image_path = input("Output Path(optional): ")
+        _is_quit_tool(output_image_path)
+
+        resize(input_image_path, output_image_width, output_image_height, output_image_path)
